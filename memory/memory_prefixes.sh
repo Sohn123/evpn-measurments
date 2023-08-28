@@ -1,0 +1,1 @@
+echo $(vtysh -c "show bgp l2vpn evpn statistics json" | grep -o '"totalPrefixes":[^,]*' | grep -o '[^:]*$' && echo $(($(grep 'MemTotal' /proc/meminfo | grep -Eo "[0-9]*")-$(grep 'MemFree' /proc/meminfo | grep -Eo "[0-9]*"))))
